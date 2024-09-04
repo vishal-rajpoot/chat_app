@@ -1,7 +1,121 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, UploadCloud, Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Formik, Form } from "formik";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import * as Yup from "yup";
 
 const Signup = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    image: null,
+  });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters long")
+      .required("Name is required"),
+    email: Yup.string()
+      .email("Email address is invalid")
+      .required("Email is required"),
+    password: Yup.string()
+      .min(5, "Password must be at least 5 characters long")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .min(5, "Password must be at least 5 characters long")
+      .required("Confirm Password is required"),
+    image: Yup.mixed()
+      .required("Image is required")
+      .test("fileSize", "Image must be less than 2MB", (value) => {
+        return value && value.size <= 2 * 1024 * 1024;
+      })
+      .test("fileType", "Invalid image type", (value) => {
+        return (
+          value && ["image/jpeg", "image/png", "image/gif"].includes(value.type)
+        );
+      }),
+  });
+
+  const validate = async () => {
+    try {
+      await validationSchema.validate(formData, { abortEarly: false });
+      setErrors({});
+      return true;
+    } catch (err) {
+      const formErrors = {};
+      err.inner.forEach((error) => {
+        formErrors[error.path] = error.message;
+      });
+      setErrors(formErrors);
+      return false;
+    }
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setFormData({ ...formData, image: file });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const isValid = await validate();
+
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match !");
+      return;
+    }
+    if (!formData.image) {
+      toast.error(errors.image);
+      return;
+    }
+    if (!formData.name) {
+      toast.error(errors.name);
+    }
+
+    if (isValid) {
+      const form = new FormData();
+      form.append("name", formData.name);
+      form.append("email", formData.email);
+      form.append("password", formData.password);
+      form.append("confirmPassword", formData.confirmPassword);
+      form.append("image", formData.image);
+
+      try {
+        const response = await fetch("/api/upload", {
+          method: "POST",
+          body: form,
+        });
+
+        if (response.ok) {
+          await response.json();
+          toast.success("Form submitted");
+        } else {
+          toast.error(response.statusText);
+        }
+      } catch (error) {
+        toast.error(error);
+      }
+    }
+  };
+
   return (
     <section>
       <div className="flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
@@ -33,95 +147,186 @@ const Signup = () => {
               Sign In
             </Link>
           </p>
-          <form action="#" method="POST" className="mt-8">
-            <div className="space-y-5">
-              <div>
-                <label
-                  htmlFor=""
-                  className="text-base font-medium text-gray-900"
-                >
-                  {" "}
-                  Name{" "}
-                </label>
-                <div className="mt-2">
-                  <input
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="name"
-                    placeholder="Name"
-                  ></input>
-                </div>
-              </div>
-              <div>
-                <label
-                  htmlFor=""
-                  className="text-base font-medium text-gray-900"
-                >
-                  {" "}
-                  Email address{" "}
-                </label>
-                <div className="mt-2">
-                  <input
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="email"
-                    placeholder="Email"
-                  ></input>
-                </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between">
-                  <label
-                    htmlFor=""
-                    className="text-base font-medium text-gray-900"
-                  >
-                    {" "}
-                    Password{" "}
-                  </label>
-                </div>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              password: "",
+              confirmPassword: "",
+            }}
+            validationSchema={validationSchema}
+          >
+            {({ isSubmitting }) => (
+              <Form className="mt-8" onSubmit={handleSubmit}>
+                <div className="space-y-5">
+                  <div>
+                    <label
+                      htmlFor=""
+                      className="text-base font-medium text-gray-900"
+                    >
+                      {" "}
+                      Name{" "}
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        type="name"
+                        name="name"
+                        id="name"
+                        placeholder="Name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                      />
+                      {errors.name && (
+                        <div className="text-red-400 text-[12px] mt-1">
+                          {errors.name}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor=""
+                      className="text-base font-medium text-gray-900"
+                    >
+                      {" "}
+                      Email address{" "}
+                    </label>
+                    <div className="mt-2">
+                      <input
+                        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        id="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                      />
+                      {errors.email && (
+                        <div className="text-red-400 text-[12px] mt-1">
+                          {errors.email}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <label
+                        htmlFor=""
+                        className="text-base font-medium text-gray-900"
+                      >
+                        {" "}
+                        Password{" "}
+                      </label>
+                    </div>
 
-                <div className="mt-2">
-                  <input
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="password"
-                    placeholder="Password"
-                  ></input>
+                    <div className="mt-2 relative">
+                      <input
+                        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        name="password"
+                        id="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                      />
+                      <button
+                        type="button"
+                        onClick={togglePasswordVisibility}
+                        className="absolute inset-y-0 right-2 flex items-center"
+                      >
+                        {showPassword ? (
+                          <EyeOff size={20} />
+                        ) : (
+                          <Eye size={20} />
+                        )}
+                      </button>
+                      {errors.password && (
+                        <div className="text-red-400 text-[12px] mt-1">
+                          {errors.password}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <label
+                        htmlFor=""
+                        className="text-base font-medium text-gray-900"
+                      >
+                        {" "}
+                        Confirm Password{" "}
+                      </label>
+                    </div>
+                    <div className="mt-2">
+                      <div className="relative">
+                        <input
+                          className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                          type={showConfirmPassword ? "text" : "password"}
+                          placeholder="Confirm Password"
+                          name="confirmPassword"
+                          id="confirmPassword"
+                          value={formData.confirmPassword}
+                          onChange={handleInputChange}
+                        />
+                        <button
+                          type="button"
+                          onClick={toggleConfirmPasswordVisibility}
+                          className="absolute inset-y-0 right-2 flex items-center"
+                        >
+                          {showConfirmPassword ? (
+                            <EyeOff size={20} />
+                          ) : (
+                            <Eye size={20} />
+                          )}
+                        </button>
+                        {errors.confirmPassword && (
+                          <div className="text-red-400 text-[12px] mt-1">
+                            {errors.confirmPassword}
+                          </div>
+                        )}
+                      </div>
+                      <Link
+                        to="/"
+                        title=""
+                        className="text-sm flex justify-end font-semibold text-[#FFD763] hover:underline"
+                      >
+                        {" "}
+                        Forgot password?{" "}
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="flex items-center border  rounded-lg">
+                    <label className="inline-flex items-center justify-center rounded-md bg-[#ffcd36] px-3.5 py-2.5 font-semibold leading-7 text-white cursor-pointer hover:bg-[#fac554]">
+                      <UploadCloud className="mr-2" size={16} />
+                      Upload Your Picture
+                      <input
+                        type="file"
+                        className="hidden"
+                        name="image"
+                        id="image"
+                        onChange={handleFileChange}
+                      />
+                    </label>
+                    <span className="mx-3 text-gray-600 font-semibold">
+                      {formData.image ? formData.image.name : "No file chosen"}
+                    </span>
+                  </div>
+
+                  <div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="inline-flex w-full items-center justify-center rounded-md bg-[#ffcd36] px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-[#fac554]"
+                    >
+                      Get started <ArrowRight className="ml-2" size={16} />
+                    </button>
+                    <ToastContainer />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <div className="flex items-center justify-between">
-                  <label
-                    htmlFor=""
-                    className="text-base font-medium text-gray-900"
-                  >
-                    {" "}
-                    Confirm Password{" "}
-                  </label>
-                </div>
-                <div className="mt-2">
-                  <input
-                    className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
-                    type="password"
-                    placeholder="Confirm Password"
-                  ></input>
-                  <Link
-                    to="/"
-                    title=""
-                    className="text-sm flex justify-end font-semibold text-[#FFD763] hover:underline"
-                  >
-                    {" "}
-                    Forgot password?{" "}
-                  </Link>
-                </div>
-              </div>
-              <div>
-                <button
-                  type="button"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-[#FFD763] px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-[#FFDA8D]"
-                >
-                  Get started <ArrowRight className="ml-2" size={16} />
-                </button>
-              </div>
-            </div>
-          </form>
+              </Form>
+            )}
+          </Formik>
           <div className="mt-3 space-y-3">
             <button
               type="button"
@@ -138,22 +343,6 @@ const Signup = () => {
                 </svg>
               </span>
               Sign in with Google
-            </button>
-            <button
-              type="button"
-              className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
-            >
-              <span className="mr-2 inline-block">
-                <svg
-                  className="h-6 w-6 text-[#2563EB]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12-6.627 0-12 5.373-12 12 0 6.013 4.436 10.987 10.24 11.854v-8.385h-3.078v-3.469h3.078v-2.641c0-3.045 1.793-4.715 4.533-4.715 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.926-1.956 1.875v2.293h3.328l-.532 3.469h-2.796v8.385c5.804-.867 10.24-5.841 10.24-11.854z" />
-                </svg>
-              </span>
-              Sign in with Facebook
             </button>
           </div>
         </div>
