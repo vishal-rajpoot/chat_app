@@ -1,10 +1,11 @@
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as Yup from "yup";
+import { useAuth } from "./context/AuthContext";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,9 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const validationSchema = Yup.object().shape({
     email: Yup.string()
@@ -42,29 +46,28 @@ const Login = () => {
       return false;
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const isValid = await validate();
+
     if (!formData.email) {
       toast.error(errors.email);
+      return;
     }
 
-    if (isValid) {
-      try {
-        const response = await fetch("/api/auth/login", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (response.ok) {
-          await response.json();
-          toast.success("Form submitted");
-        } else {
-          toast.error(response.statusText);
-        }
-      } catch (error) {
-        toast.error(error);
-      }
+    if (!isValid) {
+      toast.error("Invalid Data");
+      return;
+    }
+    const credentials = JSON.stringify(formData);
+    try {
+      console.log("first");
+      await login(credentials);
+      navigate("/");
+    } catch (error) {
+      toast.error("Login failed, please try again.");
+      console.error(error);
     }
   };
 
@@ -101,10 +104,8 @@ const Login = () => {
           </p>
           <Formik
             initialValues={{
-              name: "",
               email: "",
               password: "",
-              confirmPassword: "",
             }}
             validationSchema={validationSchema}
           >
@@ -166,7 +167,6 @@ const Login = () => {
                       />
                       <button
                         type="button"
-                        disabled={isSubmitting}
                         onClick={togglePasswordVisibility}
                         className="absolute inset-y-0 right-2 flex items-center"
                       >
@@ -186,6 +186,7 @@ const Login = () => {
                   <div>
                     <button
                       type="submit"
+                      disabled={isSubmitting}
                       className="inline-flex w-full items-center justify-center rounded-md bg-[#FFD763] px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-[#FFDA8D]"
                     >
                       Get started <ArrowRight className="ml-2" size={16} />
