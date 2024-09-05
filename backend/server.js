@@ -3,23 +3,36 @@
 import http from "http";
 import app from "./src/app.js";
 import logger from "./src/utils/logger.js";
-
+import connectDB from "./config/db.js";
+import appConfig from "./config/appConfig.js";
 const server = http.createServer(app);
 
+const normalizePort = (val) => {
+  const port = parseInt(val, 10);
+  if (Number.isNaN(port)) {
+    // named pipe
+    return val;
+  }
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+  return false;
+};
 
-const port = 8080;
-// normalizePort(appConfig.app.port);
+const port = normalizePort(appConfig.app.port);
+
 const onError = (error) => {
   if (error.syscall !== "listen") {
     throw error;
   }
   switch (error.code) {
     case "EACCES":
-        logger.error(`${port} requires elevated privileges`);
+      logger.error(`${port} requires elevated privileges`.red.bold);
       process.exit(1);
       break;
     case "EADDRINUSE":
-        logger.error(`${port} is already in use`);
+      logger.error(`${port} is already in use`.red.bold);
       process.exit(1);
       break;
     default:
@@ -31,15 +44,15 @@ const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === "string" ? `pipe ${addr}` : `port: ${addr.port}`;
 
-  logger.info(`Server started listening on ${bind}`);
+  logger.info(`Server started listening on ${bind}`.yellow.bold);
 };
 
 process.on("SIGINT", () => {
-  logger.error("stopping the server", "info");
+  logger.error("stopping the server".red.bold);
   process.exit();
 });
 
-// initializeDbConnection();
+connectDB();
 
 server.listen(port);
 server.on("error", onError);

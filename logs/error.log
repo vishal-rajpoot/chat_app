@@ -19,3 +19,15 @@
 2024-09-01T11:18:20.355Z [error]: stopping the server
 2024-09-02T08:15:02.646Z [error]: stopping the server
 2024-09-02T09:02:35.301Z [error]: stopping the server
+2024-09-05T09:47:38.034Z [error]: stopping the server
+2024-09-05T09:59:01.809Z [error]: stopping the server
+2024-09-05T10:01:03.777Z [error]: Error: TypeError: Cannot read properties of undefined (reading 'bold')
+2024-09-05T10:05:31.112Z [error]: Error: TypeError: Cannot read properties of undefined (reading 'green')
+2024-09-05T10:06:04.395Z [error]: stopping the server
+2024-09-05T10:06:52.614Z [error]: stopping the server
+2024-09-05T10:08:52.178Z [error]: [1m[41mstopping the server[49m[22m
+2024-09-05T10:09:39.983Z [error]: [1m[41mstopping the server[49m[22m
+2024-09-05T10:10:18.041Z [error]: [1m[31mstopping the server[39m[22m
+2024-09-05T10:11:47.938Z [error]: undefined
+2024-09-05T10:14:39.211Z [error]: [1m[31mstopping the server[39m[22m
+2024-09-05T10:14:58.249Z [error]: [1m[31mstopping the server[39m[22m
