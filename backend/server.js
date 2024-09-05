@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import http from "http";
 import app from "./src/app.js";
 import logger from "./src/utils/logger.js";
