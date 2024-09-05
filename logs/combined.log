@@ -268,3 +268,15 @@
 2024-09-05T10:17:27.420Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
 2024-09-05T10:17:35.138Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
 2024-09-05T10:17:35.803Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:26:53.870Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:26:54.534Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:26:57.891Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:26:58.659Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:27:05.886Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:27:06.661Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:27:25.752Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:27:26.610Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:27:43.767Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:27:44.463Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T11:11:58.826Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T11:11:59.542Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m[24m
