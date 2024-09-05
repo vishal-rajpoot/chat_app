@@ -99,3 +99,184 @@
 2024-09-04T08:36:49.299Z [info]: Server started listening on port: 8080
 2024-09-04T09:50:28.456Z [info]: Server started listening on port: 8080
 2024-09-04T09:50:47.002Z [info]: Server started listening on port: 8080
+2024-09-04T12:19:06.301Z [info]: Server started listening on port: 8080
+2024-09-04T13:16:03.887Z [info]: Server started listening on port: 8080
+2024-09-05T09:39:17.822Z [info]: Server started listening on port: 8080
+2024-09-05T09:44:19.321Z [info]: Server started listening on port: 8080
+2024-09-05T09:44:30.032Z [info]: Server started listening on port: 8080
+2024-09-05T09:44:37.723Z [info]: Server started listening on port: 8080
+2024-09-05T09:44:42.421Z [info]: Server started listening on port: 8080
+2024-09-05T09:44:48.918Z [info]: Server started listening on port: 8080
+2024-09-05T09:44:54.718Z [info]: Server started listening on port: 8080
+2024-09-05T09:44:59.633Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:12.186Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:23.381Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:26.498Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:37.728Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:40.693Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:44.599Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:48.334Z [info]: Server started listening on port: 8080
+2024-09-05T09:45:58.124Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:02.072Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:07.107Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:11.540Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:14.914Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:16.426Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:34.670Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:38.119Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:40.513Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:47.558Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:50.335Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:53.578Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:56.489Z [info]: Server started listening on port: 8080
+2024-09-05T09:46:59.444Z [info]: Server started listening on port: 8080
+2024-09-05T09:47:04.288Z [info]: Server started listening on port: 8080
+2024-09-05T09:47:08.352Z [info]: Server started listening on port: 8080
+2024-09-05T09:47:38.034Z [error]: stopping the server
+2024-09-05T09:47:42.292Z [info]: Server started listening on port: 8080
+2024-09-05T09:47:48.538Z [info]: Server started listening on port: 8080
+2024-09-05T09:47:59.716Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:01.389Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:06.431Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:07.650Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:17.497Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:37.880Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:45.379Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:48.952Z [info]: Server started listening on port: 8080
+2024-09-05T09:48:55.864Z [info]: Server started listening on port: 8080
+2024-09-05T09:49:02.321Z [info]: Server started listening on port: 8080
+2024-09-05T09:49:05.377Z [info]: Server started listening on port: 8080
+2024-09-05T09:49:14.824Z [info]: Server started listening on port: 8080
+2024-09-05T09:49:24.127Z [info]: Server started listening on port: 8080
+2024-09-05T09:49:32.188Z [info]: Server started listening on port: 8080
+2024-09-05T09:57:03.263Z [info]: Server started listening on port: 8080
+2024-09-05T09:57:09.100Z [error]: stopping the server
+2024-09-05T09:57:14.635Z [info]: Server started listening on port: 8080
+2024-09-05T09:57:15.361Z [info]: Mongo db connected: chatapp-shard-00-01.tegjs.mongodb.net
+2024-09-05T09:57:34.572Z [info]: Server started listening on port: 8080
+2024-09-05T09:57:35.402Z [info]: Mongo db connected: chatapp-shard-00-01.tegjs.mongodb.net
+2024-09-05T09:57:54.029Z [info]: Server started listening on port: 8080
+2024-09-05T09:57:56.795Z [info]: Mongo db connected: chatapp-shard-00-02.tegjs.mongodb.net
+2024-09-05T09:58:08.315Z [info]: Server started listening on port: 8080
+2024-09-05T09:58:09.058Z [info]: Mongo db connected: chatapp-shard-00-01.tegjs.mongodb.net
+2024-09-05T09:59:01.809Z [error]: stopping the server
+2024-09-05T09:59:31.954Z [info]: Server started listening on port: 8080
+2024-09-05T09:59:32.648Z [info]: Mongo db connected: chatapp-shard-00-01.tegjs.mongodb.net
+2024-09-05T09:59:56.235Z [info]: Server started listening on port: 8080
+2024-09-05T09:59:57.078Z [info]: Mongo db connected: chatapp-shard-00-02.tegjs.mongodb.net
+2024-09-05T10:00:31.031Z [info]: Server started listening on port: 8080
+2024-09-05T10:00:31.782Z [info]: [1m[42mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[49m[22m
+2024-09-05T10:00:52.350Z [info]: Server started listening on port: 8080
+2024-09-05T10:00:53.081Z [info]: [1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m
+2024-09-05T10:01:02.991Z [info]: Server started listening on port: 8080
+2024-09-05T10:01:03.777Z [error]: Error: TypeError: Cannot read properties of undefined (reading 'bold')
+2024-09-05T10:01:32.776Z [info]: Server started listening on port: 8080
+2024-09-05T10:01:33.686Z [info]: [35mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m
+2024-09-05T10:01:50.528Z [info]: Server started listening on port: 8080
+2024-09-05T10:01:52.994Z [info]: Server started listening on port: 8080
+2024-09-05T10:01:53.690Z [info]: [47m[35mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[49m
+2024-09-05T10:02:02.563Z [info]: Server started listening on port: 8080
+2024-09-05T10:02:03.242Z [info]: [35mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m
+2024-09-05T10:02:14.570Z [info]: Server started listening on port: 8080
+2024-09-05T10:02:15.321Z [info]: [31mM[39m[33mo[39m[32mn[39m[34mg[39m[35mo[39m [33md[39m[32mb[39m [35mc[39m[31mo[39m[33mn[39m[32mn[39m[34me[39m[35mc[39m[31mt[39m[33me[39m[32md[39m[34m:[39m [31mc[39m[33mh[39m[32ma[39m[34mt[39m[35ma[39m[31mp[39m[33mp[39m[32m-[39m[34ms[39m[35mh[39m[31ma[39m[33mr[39m[32md[39m[34m-[39m[35m0[39m[31m0[39m[33m-[39m[32m0[39m[34m2[39m[35m.[39m[31mt[39m[33me[39m[32mg[39m[34mj[39m[35ms[39m[31m.[39m[33mm[39m[32mo[39m[34mn[39m[35mg[39m[31mo[39m[33md[39m[32mb[39m[34m.[39m[35mn[39m[31me[39m[33mt[39m
+2024-09-05T10:02:47.327Z [info]: Server started listening on port: 8080
+2024-09-05T10:02:48.054Z [info]: Mongo db connected: chatapp-shard-00-00.tegjs.mongodb.net
+2024-09-05T10:03:15.242Z [info]: Server started listening on port: 8080
+2024-09-05T10:03:15.976Z [info]: M[7mo[27mn[7mg[27mo[7m [27md[7mb[27m [7mc[27mo[7mn[27mn[7me[27mc[7mt[27me[7md[27m:[7m [27mc[7mh[27ma[7mt[27ma[7mp[27mp[7m-[27ms[7mh[27ma[7mr[27md[7m-[27m0[7m0[27m-[7m0[27m1[7m.[27mt[7me[27mg[7mj[27ms[7m.[27mm[7mo[27mn[7mg[27mo[7md[27mb[7m.[27mn[7me[27mt
+2024-09-05T10:03:27.500Z [info]: Server started listening on port: 8080
+2024-09-05T10:03:28.344Z [info]: undefined
+2024-09-05T10:03:36.257Z [info]: Server started listening on port: 8080
+2024-09-05T10:03:37.113Z [info]: [43mM[7mo[27mn[7mg[27mo[7m [27md[7mb[27m [7mc[27mo[7mn[27mn[7me[27mc[7mt[27me[7md[27m:[7m [27mc[7mh[27ma[7mt[27ma[7mp[27mp[7m-[27ms[7mh[27ma[7mr[27md[7m-[27m0[7m0[27m-[7m0[27m1[7m.[27mt[7me[27mg[7mj[27ms[7m.[27mm[7mo[27mn[7mg[27mo[7md[27mb[7m.[27mn[7me[27mt[49m
+2024-09-05T10:04:11.030Z [info]: Server started listening on port: 8080
+2024-09-05T10:04:11.818Z [info]: [43mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[49m
+2024-09-05T10:04:30.427Z [info]: Server started listening on port: 8080
+2024-09-05T10:04:31.199Z [info]: [37m[43mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[49m[39m
+2024-09-05T10:04:38.903Z [info]: Server started listening on port: 8080
+2024-09-05T10:04:39.654Z [info]: [1m[37m[43mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[49m[39m[22m
+2024-09-05T10:04:51.376Z [info]: Server started listening on port: 8080
+2024-09-05T10:04:52.079Z [info]: [1m[31m[43mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[49m[39m[22m
+2024-09-05T10:05:06.224Z [info]: Server started listening on port: 8080
+2024-09-05T10:05:07.003Z [info]: [1m[43mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[49m[22m
+2024-09-05T10:05:20.097Z [info]: Server started listening on port: 8080
+2024-09-05T10:05:20.928Z [info]: [1m[32m[43mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[49m[39m[22m
+2024-09-05T10:05:30.316Z [info]: Server started listening on port: 8080
+2024-09-05T10:05:31.112Z [error]: Error: TypeError: Cannot read properties of undefined (reading 'green')
+2024-09-05T10:05:44.195Z [info]: Server started listening on port: 8080
+2024-09-05T10:05:44.915Z [info]: [1m[32m[46mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[49m[39m[22m
+2024-09-05T10:05:55.000Z [info]: Server started listening on port: 8080
+2024-09-05T10:05:55.778Z [info]: [1m[46mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[49m[22m
+2024-09-05T10:06:04.395Z [error]: stopping the server
+2024-09-05T10:06:43.806Z [info]: Server started listening on port: 8080
+2024-09-05T10:06:49.882Z [info]: Server started listening on port: 8080
+2024-09-05T10:06:50.634Z [info]: [1m[46mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[49m[22m
+2024-09-05T10:06:52.614Z [error]: stopping the server
+2024-09-05T10:07:38.159Z [info]: Server started listening on port: 8080
+2024-09-05T10:07:39.020Z [info]: [1m[46mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[49m[22m
+2024-09-05T10:08:09.023Z [info]: Server started listening on port: 8080
+2024-09-05T10:08:09.818Z [info]: [1m[46mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[49m[22m
+2024-09-05T10:08:16.332Z [info]: Server started listening on port: 8080
+2024-09-05T10:08:17.260Z [info]: [1m[46mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[49m[22m
+2024-09-05T10:08:28.511Z [info]: Server started listening on port: 8080
+2024-09-05T10:08:29.166Z [info]: [1m[46mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[49m[22m
+2024-09-05T10:08:50.552Z [info]: Server started listening on port: 8080
+2024-09-05T10:08:51.228Z [info]: [1m[46mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[49m[22m
+2024-09-05T10:08:52.178Z [error]: [1m[41mstopping the server[49m[22m
+2024-09-05T10:09:09.806Z [info]: Server started listening on port: 8080
+2024-09-05T10:09:22.119Z [info]: Server started listening on port: 8080
+2024-09-05T10:09:22.855Z [info]: [1m[46mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[49m[22m
+2024-09-05T10:09:35.638Z [info]: Server started listening on port: 8080
+2024-09-05T10:09:36.433Z [info]: [1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m
+2024-09-05T10:09:39.983Z [error]: [1m[41mstopping the server[49m[22m
+2024-09-05T10:10:10.335Z [info]: Server started listening on port: 8080
+2024-09-05T10:10:11.475Z [info]: [1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m
+2024-09-05T10:10:18.041Z [error]: [1m[31mstopping the server[39m[22m
+2024-09-05T10:10:39.665Z [info]: Server started listening on port: 8080
+2024-09-05T10:10:40.421Z [info]: [1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m
+2024-09-05T10:10:46.841Z [info]: Server started listening on port: 8080
+2024-09-05T10:10:47.469Z [info]: [1m[32mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m
+2024-09-05T10:10:59.530Z [info]: Server started listening on port: 8080
+2024-09-05T10:11:00.417Z [info]: [1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m
+2024-09-05T10:11:13.116Z [info]: Server started listening on port: 8080
+2024-09-05T10:11:47.170Z [info]: Server started listening on port: 8080
+2024-09-05T10:11:47.938Z [error]: undefined
+2024-09-05T10:11:59.461Z [info]: Server started listening on port: 8080
+2024-09-05T10:12:00.218Z [info]: [1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m
+2024-09-05T10:12:40.787Z [info]: Server started listening on port: 8080
+2024-09-05T10:12:43.136Z [info]: Server started listening on port: 8080
+2024-09-05T10:12:43.917Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:13:56.921Z [info]: Server started listening on port: 8080.
+2024-09-05T10:13:57.925Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:14:03.659Z [info]: Server started listening on port: 8080.blue
+2024-09-05T10:14:04.391Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:14:08.280Z [info]: Server started listening on port: 8080
+2024-09-05T10:14:09.002Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:14:12.911Z [info]: [1m[34mServer started listening on port: 8080[39m[22m
+2024-09-05T10:14:13.616Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:14:30.637Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:14:31.526Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:14:39.211Z [error]: [1m[31mstopping the server[39m[22m
+2024-09-05T10:14:46.037Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:14:46.804Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:14:58.249Z [error]: [1m[31mstopping the server[39m[22m
+2024-09-05T10:15:07.222Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:15:07.905Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:17:11.377Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:17:12.081Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:17:16.509Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:17:17.284Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:17:26.710Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:17:27.420Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:17:35.138Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:17:35.803Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:26:53.870Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:26:54.534Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:26:57.891Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:26:58.659Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:27:05.886Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:27:06.661Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-01.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:27:25.752Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:27:26.610Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T10:27:43.767Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T10:27:44.463Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-00.tegjs.mongodb.net[39m[22m[24m
+2024-09-05T11:11:58.826Z [info]: [1m[33mServer started listening on port: 8080[39m[22m
+2024-09-05T11:11:59.542Z [info]: [4m[1m[34mMongo db connected: chatapp-shard-00-02.tegjs.mongodb.net[39m[22m[24m
