@@ -14,7 +14,7 @@ export default {
   auth: {
     jwt_secret: process.env.JWT_SECRET || "loiuytrewq",
     jwt_expiresin: process.env.JWT_EXPIRES_IN || "1h",
-    saltRounds: process.env.SALT_ROUND || 10,
+    saltRounds: Number(process.env.SALT_ROUND) || 10,
     refresh_token_secret:
       process.env.REFRESH_TOKEN_SECRET || "cG9pdXl0cmV3cQ==",
     refresh_token_expiresin: process.env.REFRESH_TOKEN_EXPIRES_IN || "2h",
