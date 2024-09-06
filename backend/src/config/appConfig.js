@@ -16,9 +16,9 @@ export default {
     jwt_expiresin: process.env.JWT_EXPIRES_IN || "1h",
     saltRounds: Number(process.env.SALT_ROUND) || 10,
     refresh_token_secret:
-      process.env.REFRESH_TOKEN_SECRET || "cG9pdXl0cmV3cQ==",
+      process.env.REFRESH_TOKEN_SECRET ,
     refresh_token_expiresin: process.env.REFRESH_TOKEN_EXPIRES_IN || "2h",
-    temp_token: process.env.TEMP_TOKEN || "loiuytrqui",
+    temp_token: process.env.TEMP_TOKEN,
     temp_token_expires: process.env.TEMP_TOKEN_EXPIRES_IN || "5m",
   },
 };
