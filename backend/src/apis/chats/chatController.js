@@ -1,4 +1,4 @@
-import { chats } from "../../../data/data.js";
+import { chats } from "../../data/data.js";
 
 const getChats = async (req, res) => {
   res.send(chats);

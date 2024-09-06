@@ -2,8 +2,8 @@
 import http from "http";
 import app from "./src/app.js";
 import logger from "./src/utils/logger.js";
-import connectDB from "./config/db.js";
-import appConfig from "./config/appConfig.js";
+import connectDB from "./src/config/db.js";
+import appConfig from "./src/config/appConfig.js";
 const server = http.createServer(app);
 
 const normalizePort = (val) => {
