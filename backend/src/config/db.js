@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import logger from "../src/utils/logger.js";
+import logger from "../utils/logger.js";
 import colors from "colors";
 import appConfig from "./appConfig.js";
 const connectDB = async () => {
