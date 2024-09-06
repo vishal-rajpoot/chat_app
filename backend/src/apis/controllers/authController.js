@@ -1,6 +1,8 @@
 import asyncHandler from "express-async-handler";
 import User from "../../models/userModel.js";
 import { generateToken } from "../../config/generateToken.js";
+import { sendSuccess } from "../../utils/responseHandler.js";
+import { AuthenticationError } from "../../utils/appErrors.js";
 
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, pic } = req.body;
@@ -40,16 +42,16 @@ const loginUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email });
   if (user && (await user.matchPassword(password))) {
-    res.json({
+    const data = {
       _id: user._id,
       name: user.name,
       email: user.email,
       pic: user.pic,
       token: generateToken(user._id),
-    });
+    };
+    return sendSuccess(res, data, "Login successfully");
   } else {
-    res.status(401);
-    throw new Error("Invalid email or password");
+    throw new AuthenticationError("Invalid email or password");
   }
 });
 
