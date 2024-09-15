@@ -1,9 +1,3 @@
-// chat name
-// group chat
-// list of users
-// latest Message
-// group admin
-
 import mongoose from "mongoose";
 
 const chatModel = mongoose.Schema(
