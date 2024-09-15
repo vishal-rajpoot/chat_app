@@ -5,6 +5,7 @@ import tryCatchHandler from "../../utils/tryCatchHandler.js";
 const router = express.Router();
 
 router.post("/registeration", tryCatchHandler(registerUser));
+
 router.post("/login", tryCatchHandler(loginUser));
 
 export default router;
