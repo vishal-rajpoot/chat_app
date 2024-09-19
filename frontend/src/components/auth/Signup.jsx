@@ -17,6 +17,8 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [url, setUrl] = useState(null);
+  const [filename, setFilename] = useState(null);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -58,9 +60,36 @@ const Signup = () => {
     }
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
-    setFormData({ ...formData, image: file });
+    setFilename(file.name);
+
+    const form = new FormData();
+    form.append("file", file);
+    form.append("upload_preset", "mychats");
+    form.append("cloud_name", "donzovjhn");
+
+    try {
+      if (file === null) {
+        return toast.warning("Please upload image");
+      }
+      if (file.type === "image/jpeg" || file.type === "image/png") {
+        const data = await fetch(
+          "https://api.cloudinary.com/v1_1/donzovjhn/image/upload",
+          {
+            method: "POST",
+            body: form,
+          }
+        );
+        const url = data.url.toString();
+        setUrl(url);
+      } else {
+        return toast.error("Invalid image type");
+      }
+    } catch {
+      return toast.error("dekhte hain");
+    }
+    setFormData({ ...formData, image: url });
   };
 
   const togglePasswordVisibility = () => {
@@ -89,19 +118,13 @@ const Signup = () => {
     if (!formData.name) {
       toast.error(errors.name);
     }
+    const data = formData.json();
 
     if (isValid) {
-      const form = new FormData();
-      form.append("name", formData.name);
-      form.append("email", formData.email);
-      form.append("password", formData.password);
-      form.append("confirmPassword", formData.confirmPassword);
-      form.append("image", formData.image);
-
       try {
         const response = await fetch("/api/upload", {
           method: "POST",
-          body: form,
+          body: data,
         });
 
         if (response.ok) {
@@ -309,7 +332,7 @@ const Signup = () => {
                       />
                     </label>
                     <span className="mx-3 text-gray-600 font-semibold">
-                      {formData.image ? formData.image.name : "No file chosen"}
+                      {filename ? filename : "No file chosen"}
                     </span>
                   </div>
 
