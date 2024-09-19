@@ -1,4 +1,4 @@
-import { ArrowRight, UploadCloud, Eye, EyeOff } from "lucide-react";
+import { ArrowRight, UploadCloud, Eye, EyeOff, Loader } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
@@ -17,6 +17,9 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [uploading, setUpoading] = useState(false);
+  const [filename, setFilename] = useState(null);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -58,9 +61,37 @@ const Signup = () => {
     }
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
+    setLoading(true);
     const file = e.target.files[0];
-    setFormData({ ...formData, image: file });
+    setFilename(file.name);
+
+    const form = new FormData();
+    form.append("file", file);
+    form.append("upload_preset", "mychats");
+    form.append("cloud_name", "donzovjhn");
+
+    try {
+      if (file === null) {
+        return toast.warning("Please upload image");
+      }
+      if (file.type === "image/jpeg" || file.type === "image/png") {
+        const data = await fetch(
+          "https://api.cloudinary.com/v1_1/donzovjhn/image/upload",
+          {
+            method: "POST",
+            body: form,
+          }
+        );
+        const url = data.url.toString();
+        setFormData({ ...formData, image: url });
+        setLoading(false);
+      } else {
+        return toast.error("Invalid image type");
+      }
+    } catch {
+      return toast.error("dekhte hain");
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -89,22 +120,21 @@ const Signup = () => {
     if (!formData.name) {
       toast.error(errors.name);
     }
-
+    const data = JSON.stringify(formData);
+    console.log(data, "dddd");
     if (isValid) {
-      const form = new FormData();
-      form.append("name", formData.name);
-      form.append("email", formData.email);
-      form.append("password", formData.password);
-      form.append("confirmPassword", formData.confirmPassword);
-      form.append("image", formData.image);
-
       try {
+        setUpoading(true);
         const response = await fetch("/api/upload", {
           method: "POST",
-          body: form,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data,
         });
 
         if (response.ok) {
+          setUpoading(false);
           await response.json();
           toast.success("Form submitted");
         } else {
@@ -113,6 +143,8 @@ const Signup = () => {
       } catch (error) {
         toast.error(error);
       }
+    } else {
+      console.log("form not submitted");
     }
   };
 
@@ -298,8 +330,12 @@ const Signup = () => {
                   </div>
                   <div className="flex items-center border  rounded-lg">
                     <label className="inline-flex items-center justify-center rounded-md bg-[#ffcd36] px-3.5 py-2.5 font-semibold leading-7 text-white cursor-pointer hover:bg-[#fac554]">
-                      <UploadCloud className="mr-2" size={16} />
-                      Upload Your Picture
+                      {loading ? (
+                        <Loader className="animate-spin mr-2" size={20} />
+                      ) : (
+                        <UploadCloud className="mr-2" size={16} />
+                      )}{" "}
+                      {loading ? "Uploading..." : "Upload Your Picture"}
                       <input
                         type="file"
                         className="hidden"
@@ -309,7 +345,7 @@ const Signup = () => {
                       />
                     </label>
                     <span className="mx-3 text-gray-600 font-semibold">
-                      {formData.image ? formData.image.name : "No file chosen"}
+                      {filename ? filename : "No file chosen"}
                     </span>
                   </div>
 
@@ -319,7 +355,13 @@ const Signup = () => {
                       disabled={isSubmitting}
                       className="inline-flex w-full items-center justify-center rounded-md bg-[#ffcd36] px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-[#fac554]"
                     >
-                      Get started <ArrowRight className="ml-2" size={16} />
+                      {uploading ? (
+                        <Loader className="animate-spin mr-2" size={20} />
+                      ) : (
+                        "Sign up"
+                      )}{" "}
+                      {uploading ? "Signing up..." : "Upload Your Picture"}
+                      <ArrowRight className="ml-2" size={16} />
                     </button>
                     <ToastContainer />
                   </div>
