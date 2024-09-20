@@ -34,16 +34,9 @@ const Signup = () => {
     confirmPassword: Yup.string()
       .min(5, "Password must be at least 5 characters long")
       .required("Confirm Password is required"),
-    image: Yup.mixed()
-      .required("Image is required")
-      .test("fileSize", "Image must be less than 2MB", (value) => {
-        return value && value.size <= 2 * 1024 * 1024;
-      })
-      .test("fileType", "Invalid image type", (value) => {
-        return (
-          value && ["image/jpeg", "image/png", "image/gif"].includes(value.type)
-        );
-      }),
+    image: Yup.string()
+      .url("Image must be a valid URL")
+      .required("Image is required"),
   });
 
   const validate = async () => {
@@ -121,7 +114,6 @@ const Signup = () => {
       toast.error(errors.name);
     }
     const data = JSON.stringify(formData);
-    console.log(data, "dddd");
     if (isValid) {
       try {
         setUpoading(true);
@@ -360,7 +352,7 @@ const Signup = () => {
                       ) : (
                         "Sign up"
                       )}{" "}
-                      {uploading ? "Signing up..." : "Upload Your Picture"}
+                      {uploading ? "Signing up..." : "Sign up"}
                       <ArrowRight className="ml-2" size={16} />
                     </button>
                     <ToastContainer />
